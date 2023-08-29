@@ -26,4 +26,6 @@ exports.openingLiquidTags = [
   'when',
   'for',
   'unless',
+  'cache',
+  'parse_json'
 ];

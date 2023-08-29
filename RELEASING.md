@@ -1,10 +1,10 @@
-1.  Set the VERSION environment variable and make sure you're on the latest main.
+1.  Set the VERSION environment variable and make sure you're on the latest master.
 
     ```bash
     VERSION=X.X.X
-    git checkout main
-    git fetch origin main:main
-    git reset --hard origin/main
+    git checkout master
+    git fetch origin master:master
+    git reset --hard origin/master
     ```
 
 2.  Update the CHANGELOG.
@@ -21,7 +21,7 @@
     ```bash
     git add .
     git commit -m "Bump to $VERSION"
-    git push origin main
+    git push origin master
     git tag "v$VERSION"
     git push origin "v$VERSION"
     ```
@@ -29,10 +29,10 @@
 3.  Install node deps + build extension + publish (assumes you have `vsce` globally installed - `yarn global add vsce`)
 
     ```bash
-    vsce login Shopify
+    vsce login platformOS
     scripts/check-yarn-links.sh && yarn && yarn build && yarn && yarn build && vsce publish $VERSION
     ```
 
 4.  Make a GitHub release for the change.
 
-    https://github.com/Shopify/theme-check-vscode/releases/new
+    https://github.com/Platform-OS/platformos-check-vscode/releases/new

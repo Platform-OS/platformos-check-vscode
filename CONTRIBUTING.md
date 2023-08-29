@@ -1,4 +1,4 @@
-# Contributing to Theme Check VSCode
+# Contributing to platformOS Check VSCode
 
 We love receiving pull requests!
 
@@ -10,7 +10,7 @@ We love receiving pull requests!
 
 ## How to contribute
 
-1. Fork it ( https://github.com/Shopify/theme-check-vscode/fork )
+1. Fork it ( https://github.com/Platform-OS/platformos-check-vscode/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

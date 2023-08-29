@@ -47,10 +47,10 @@ export async function activate(extensionContext: ExtensionContext) {
   context = extensionContext;
 
   context.subscriptions.push(
-    commands.registerCommand('shopifyLiquid.restart', restartServer),
+    commands.registerCommand('platformosLiquid.restart', restartServer),
   );
   context.subscriptions.push(
-    commands.registerCommand('shopifyLiquid.runChecks', () =>
+    commands.registerCommand('platformosLiquid.runChecks', () =>
       client!.sendRequest('workspace/executeCommand', {
         command: 'runChecks',
       }),
@@ -91,7 +91,7 @@ export function deactivate() {
 async function startServer() {
   const serverOptions = await getServerOptions();
   console.info(
-    'shopify.theme-check-vscode Server options %s',
+    'platformos.platformos-check-vscode Server options %s',
     JSON.stringify(serverOptions, null, 2),
   );
   if (!serverOptions) {
@@ -111,8 +111,8 @@ async function startServer() {
   };
 
   client = new LanguageClient(
-    'shopifyLiquid',
-    'Theme Check Language Server',
+    'platformosLiquid',
+    'PlatformOS Check Language Server',
     serverOptions,
     clientOptions,
   );
@@ -143,39 +143,31 @@ async function restartServer() {
 function onConfigChange(event: {
   affectsConfiguration: (arg0: string) => any;
 }) {
-  const didChangeThemeCheck = event.affectsConfiguration(
-    'shopifyLiquid.languageServerPath',
+  const didChangePlatformOSCheck = event.affectsConfiguration(
+    'platformosLiquid.languageServerPath',
   );
-  const didChangeShopifyCLI = event.affectsConfiguration(
-    'shopifyLiquid.shopifyCLIPath',
-  );
-  if (didChangeThemeCheck || didChangeShopifyCLI) {
+  if (didChangePlatformOSCheck) {
     restartServer();
   }
 }
 
 let hasShownWarning = false;
 async function getServerOptions(): Promise<ServerOptions | undefined> {
-  const disableWarning = getConfig('shopifyLiquid.disableWindowsWarning');
+  const disableWarning = getConfig('platformosLiquid.disableWindowsWarning');
   if (!disableWarning && isWin && !hasShownWarning) {
     hasShownWarning = true;
     window.showWarningMessage(
-      'Shopify Liquid support on Windows is experimental. Please report any issue.',
+      'PlatformOS Liquid support on Windows is experimental. Please report any issue.',
     );
   }
-  const themeCheckPath = getConfig('shopifyLiquid.languageServerPath') as
-    | string
-    | undefined;
-  const shopifyCLIPath = getConfig('shopifyLiquid.shopifyCLIPath') as
+  const platformosCheckPath = getConfig('platformosLiquid.languageServerPath') as
     | string
     | undefined;
 
   try {
     const executable: ServerOptions | undefined =
-      (themeCheckPath && (await themeCheckExecutable(themeCheckPath))) ||
-      (shopifyCLIPath && (await shopifyCLIExecutable(shopifyCLIPath))) ||
-      (await getThemeCheckExecutable()) ||
-      (await getShopifyCLIExecutable());
+      (platformosCheckPath && (await platformosCheckExecutable(platformosCheckPath))) ||
+      (await getPlatformOSCheckExecutable());
     if (!executable) {
       throw new Error('No executable found');
     }
@@ -186,12 +178,12 @@ async function getServerOptions(): Promise<ServerOptions | undefined> {
     } else {
       if (isWin) {
         window.showWarningMessage(
-          `The 'theme-check-language-server' executable was not found on your $PATH. Was it installed? The path can also be changed via the "shopifyLiquid.languageServerPath" setting.`,
+          `The 'platformos-check-language-server' executable was not found on your $PATH. Was it installed? The path can also be changed via the "platformosLiquid.languageServerPath" setting.`,
         );
       } else {
         console.error(e);
         window.showWarningMessage(
-          `The 'shopify' executable was not found on your $PATH. Was it installed? The path can also be changed via the "shopifyLiquid.shopifyCLIPath" setting.`,
+          `The 'platformos-check-language-server' executable was not found on your $PATH. Was it installed? The path can also be changed via the "platformosLiquid.languageServerPath" setting.`,
         );
       }
     }
@@ -212,37 +204,16 @@ async function which(command: string) {
   }
 }
 
-async function getShopifyCLIExecutable(): Promise<ServerOptions | undefined> {
+async function getPlatformOSCheckExecutable(): Promise<ServerOptions | undefined> {
   try {
-    const path = await which('shopify');
-    return shopifyCLIExecutable(path);
+    const path = await which('platformos-check-language-server');
+    return platformosCheckExecutable(path);
   } catch (e) {
     return undefined;
   }
 }
 
-async function getThemeCheckExecutable(): Promise<ServerOptions | undefined> {
-  try {
-    const path = await which('theme-check-language-server');
-    return themeCheckExecutable(path);
-  } catch (e) {
-    return undefined;
-  }
-}
-
-async function shopifyCLIExecutable(
-  command: string | boolean,
-): Promise<ServerOptions | undefined> {
-  if (isWin || typeof command !== 'string' || command === '') {
-    return;
-  }
-  return {
-    command,
-    args: ['theme', 'language-server'],
-  };
-}
-
-async function themeCheckExecutable(
+async function platformosCheckExecutable(
   command: string | boolean,
 ): Promise<ServerOptions | undefined> {
   if (typeof command !== 'string' || command === '') {

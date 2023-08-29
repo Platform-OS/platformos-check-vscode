@@ -1,23 +1,21 @@
 <h1 align="center" style="position: relative;" >
   <br>
-    <img src="https://github.com/Shopify/theme-check-vscode/blob/main/images/shopify_glyph.png?raw=true" alt="logo" width="150" height="160">
+    <img src="https://github.com/Platform-OS/platformos-check-vscode/blob/master/images/pos.jpg?raw=true" alt="logo" width="160" height="160">
   <br>
-  Shopify Liquid
+  platformOS Liquid/GraphQL
   <br>
 </h1>
 
-<h4 align="center">A complete developer experience for Shopify themes</h4>
+<h4 align="center">A complete developer experience for platformOS apps</h4>
 
-Official VS Code extension for [Shopify Liquid](https://shopify.dev/docs/themes) powered by [Theme Check][tc] the Liquid linter and language server for online store themes.
+Official VS Code extension for [platformOS Liquid/GraphQL](https://documentation.platformos.com/) powered by [platformOS Check][tc] the Liquid/GraphQL linter and language server for platformOS apps.
 
-![](https://github.com/Shopify/theme-check-vscode/blob/feature/readme-revamp/images/demo.gif?raw=true)
-
-[Features](#features) |  [Installation](#installation) | [Configuration](#configuration) | [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=shopify.theme-check-vscode).
+[Features](#features) |  [Installation](#installation) | [Configuration](#configuration) | [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=platformOS.platformos-check-vscode).
 
 ## Features
 
 - 🎨 Syntax highlighting
-- 💧 Liquid language server ([Theme Check][tc])
+- 💧 Liquid/GraphQL language server ([platformOS Check][tc])
   - 📗 Completions
   - ✅ Linting
   - 🔎 Go to source
@@ -27,29 +25,28 @@ Official VS Code extension for [Shopify Liquid](https://shopify.dev/docs/themes)
 
 ## Installation
 
-This VS Code extensions depends on the [Theme Check][tc] language server, which is bundled in the latest [Shopify CLI](https://shopify.dev/themes/tools/cli).
-
-To install the `shopify` CLI, follow these steps:
-
-1. Go to https://shopify.dev/themes/tools/cli/install
-2. Follow the instructions for your operating system
+This VS Code extensions depends on the [platformOS Check][tc] language server.
 
 -----
 
-⚠️ **Warning** Windows support is experimental. See [this issue](https://github.com/Shopify/theme-check-vscode/issues/5) for details.
+⚠️ **Warning** Windows support is experimental. S
 
 -----
 
 ## Configuration
 
-- `"shopifyLiquid.shopifyCLIPath": string`, (optional, Unix-only) a path to the `shopify` executable.
-- `"shopifyLiquid.languageServerPath": string`, (optional) a path to the `theme-check-language-server` executable.
-- `"shopifyLiquid.disableWindowsWarning": boolean`, (default: `false`) When true, theme check won't bug you with the Windows warning anymore.
-- `"themeCheck.checkOnOpen": boolean`, (default: `true`) makes it so theme check runs on file open.
-- `"themeCheck.checkOnChange": boolean`, (default: `true`) makes it so theme check runs on file change.
-- `"themeCheck.checkOnSave": boolean`, (default: `true`) makes it so theme check runs on file save.
-- `"themeCheck.onlySingleFileChecks": boolean`, (default: `false`) makes it so theme check only runs single file checks for the files that are open.
+- `"platformosLiquid.languageServerPath": string`, (optional) a path to the `platformos-check-language-server` executable.
+- `"platformosLiquid.disableWindowsWarning": boolean`, (default: `false`) When true, platformOS check won't bug you with the Windows warning anymore.
+- `"platformosCheck.checkOnOpen": boolean`, (default: `true`) makes it so platformOS check runs on file open.
+- `"platformosCheck.checkOnChange": boolean`, (default: `true`) makes it so platformOS check runs on file change.
+- `"platformosCheck.checkOnSave": boolean`, (default: `true`) makes it so platformOS check runs on file save.
+- `"platformosCheck.onlySingleFileChecks": boolean`, (default: `false`) makes it so platformOS check only runs single file checks for the files that are open.
 
-  Great for performance if can ignore checks that span multiple files during development and otherwise run full theme checks on the CLI or in CI.
+  Great for performance if can ignore checks that span multiple files during development and otherwise run full platformOS checks on the CLI or in CI.
 
-[tc]: https://github.com/Shopify/theme-check
+
+## Credits
+
+Credits to Shopify team, as this extension is based on [theme-check-vscode](https://github.com/Shopify/theme-check-vscode)
+
+[tc]: https://github.com/Platform-OS/platformos-lsp

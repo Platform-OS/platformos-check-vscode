@@ -1,13 +1,13 @@
 {
-  "name": "theme-check-vscode",
+  "name": "platformos-check-vscode",
   "author": {
     "name": "charlespwd"
   },
-  "version": "1.10.0",
-  "publisher": "Shopify",
+  "version": "0.1.0",
+  "publisher": "PlatformOS",
   "license": "SEE LICENSE IN LICENSE.md",
-  "displayName": "Shopify Liquid",
-  "description": "A complete developer experience for Shopify themes",
+  "displayName": "PlatformOS Liquid",
+  "description": "A complete developer experience for PlatformOS apps",
   "categories": [
     "Programming Languages",
     "Linters",
@@ -15,18 +15,18 @@
   ],
   "keywords": [
     "liquid",
-    "shopify",
-    "theme-check"
+    "graphql",
+    "platformos"
   ],
   "preview": false,
-  "icon": "images/shopify_glyph.png",
-  "homepage": "https://github.com/shopify/theme-check-vscode",
+  "icon": "images/pos.jpg",
+  "homepage": "https://github.com/Platform-OS/platformos-check-vscode",
   "bugs": {
-    "url": "https://github.com/shopify/theme-check-vscode/issues"
+    "url": "https://github.com/Platform-OS/platformos-check-vscode/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shopify/theme-check-vscode.git"
+    "url": "https://github.com/Platform-OS/platformos-check-vscode.git"
   },
   "scripts": {
     "build": "yarn build:ci",
@@ -80,73 +80,67 @@
     "webpack-cli": "^5.0.0"
   },
   "activationEvents": [
-    "workspaceContains:**/.theme-check.yml",
-    "onLanguage:liquid"
+    "workspaceContains:{**/.platformos-check.yml},{**/.pos.yml}",
+    "onLanguage:liquid",
+    "onLanguage:graphql",
+    "onLanguage:yaml"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "shopifyLiquid.restart",
-        "title": "Liquid Theme Check: Restart Server"
+        "command": "platformOSLiquid.restart",
+        "title": "Liquid platformOS Check: Restart Server"
       },
       {
-        "command": "shopifyLiquid.runChecks",
-        "title": "Liquid Theme Check: Run Checks"
+        "command": "platformOSLiquid.runChecks",
+        "title": "Liquid platformOS Check: Run Checks"
       }
     ],
     "configuration": {
-      "title": "Shopify Liquid | Syntax Highlighting & Linter by Shopify",
+      "title": "PlatformOS Liquid/GraphQL | Syntax Highlighting & Linter",
       "properties": {
-        "shopifyLiquid.shopifyCLIPath": {
+        "platformOSLiquid.languageServerPath": {
           "type": [
             "string",
             "null"
           ],
           "default": null,
-          "description": "Path to shopify executable. Defaults to `which shopify` if available on `$PATH`."
+          "description": "Path to platformos-check-language-server. Defaults to `which platformos-check-language-server` if available on `$PATH`."
         },
-        "shopifyLiquid.languageServerPath": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": null,
-          "description": "Path to theme-check-language-server. Defaults to `which theme-check-language-server` if available on `$PATH`."
-        },
-        "shopifyLiquid.disableWindowsWarning": {
+        "platformOSLiquid.disableWindowsWarning": {
           "type": [
             "boolean"
           ],
-          "description": "When true, theme check won't bug you with the Windows warning anymore.",
+          "description": "When true, platformos check won't bug you with the Windows warning anymore.",
           "default": false
         },
-        "themeCheck.checkOnOpen": {
+        "platformosCheck.checkOnOpen": {
           "type": [
             "boolean"
           ],
-          "description": "When true, theme check runs on file open.",
+          "description": "When true, platformOS check runs on file open.",
           "default": true
         },
-        "themeCheck.checkOnChange": {
+        "platformosCheck.checkOnChange": {
           "type": [
             "boolean"
           ],
-          "description": "When true, theme check runs on file change.",
+          "description": "When true, platformos check runs on file change.",
           "default": true
         },
-        "themeCheck.checkOnSave": {
+        "platformosCheck.checkOnSave": {
           "type": [
             "boolean"
           ],
-          "description": "When true, theme check runs on file save.",
+          "description": "When true, platformos check runs on file save.",
           "default": true
         },
-        "themeCheck.onlySingleFileChecks": {
+        "platformosCheck.onlySingleFileChecks": {
           "type": [
             "boolean"
           ],
-          "description": "When true, disables whole theme checks. Can improve performance. (theme-check v1.10.0+)",
+          "description": "When true, disables whole platformos checks. Can improve performance. (platformos-check v0.0.1+)",
           "default": false
         }
       }
@@ -182,6 +176,13 @@
         "extensions": [
           ".scss.liquid",
           ".sass.liquid"
+        ]
+      },
+      {
+        "id": "json",
+        "extensions": [
+          ".json.liquid",
+          ".json.liquid"
         ]
       }
     ],
