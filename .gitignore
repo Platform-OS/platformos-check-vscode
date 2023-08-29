@@ -1,0 +1,8 @@
+.vscode
+node_modules
+dist
+language-configuration.json
+platformos-check-vscode*.vsix
+*.DS_Store
+.envrc
+out
