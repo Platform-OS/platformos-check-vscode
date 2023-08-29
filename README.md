@@ -2,13 +2,13 @@
   <br>
     <img src="https://github.com/Platform-OS/platformos-check-vscode/blob/master/images/pos.jpg?raw=true" alt="logo" width="160" height="160">
   <br>
-  platformOS Liquid/GraphQL
+  platformOS
   <br>
 </h1>
 
 <h4 align="center">A complete developer experience for platformOS apps</h4>
 
-Official VS Code extension for [platformOS Liquid/GraphQL](https://documentation.platformos.com/) powered by [platformOS Check][tc] the Liquid/GraphQL linter and language server for platformOS apps.
+Official VS Code extension for [platformOS](https://documentation.platformos.com/) powered by [platformOS Check][tc] the Liquid/GraphQL linter and language server for platformOS apps.
 
 [Features](#features) |  [Installation](#installation) | [Configuration](#configuration) | [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=platformOS.platformos-check-vscode).
 
