@@ -89,18 +89,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "platformOSLiquid.restart",
+        "command": "platformosLiquid.restart",
         "title": "Liquid platformOS Check: Restart Server"
       },
       {
-        "command": "platformOSLiquid.runChecks",
+        "command": "platformosLiquid.runChecks",
         "title": "Liquid platformOS Check: Run Checks"
       }
     ],
     "configuration": {
       "title": "PlatformOS Liquid/GraphQL | Syntax Highlighting & Linter",
       "properties": {
-        "platformOSLiquid.languageServerPath": {
+        "platformosLiquid.languageServerPath": {
           "type": [
             "string",
             "null"
@@ -108,7 +108,7 @@
           "default": null,
           "description": "Path to platformos-check-language-server. Defaults to `which platformos-check-language-server` if available on `$PATH`."
         },
-        "platformOSLiquid.disableWindowsWarning": {
+        "platformosLiquid.disableWindowsWarning": {
           "type": [
             "boolean"
           ],
