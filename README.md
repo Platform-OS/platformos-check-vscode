@@ -40,7 +40,7 @@ This VS Code extensions depends on the [platformOS Check][tc] language server.
 - `"platformosCheck.checkOnOpen": boolean`, (default: `true`) makes it so platformOS check runs on file open.
 - `"platformosCheck.checkOnChange": boolean`, (default: `true`) makes it so platformOS check runs on file change.
 - `"platformosCheck.checkOnSave": boolean`, (default: `true`) makes it so platformOS check runs on file save.
-- `"platformosCheck.onlySingleFileChecks": boolean`, (default: `false`) makes it so platformOS check only runs single file checks for the files that are open.
+- `"platformosCheck.onlySingleFileChecks": boolean`, (default: `true`) makes it so platformOS check only runs single file checks for the files that are open.
 
   Great for performance if can ignore checks that span multiple files during development and otherwise run full platformOS checks on the CLI or in CI.
 
