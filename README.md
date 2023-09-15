@@ -25,11 +25,20 @@ Official VS Code extension for [platformOS](https://documentation.platformos.com
 
 ## Installation
 
-This VS Code extensions depends on the [platformOS Check][tc] language server.
+In order to use the extension you would need to install the dependencies:
+1. Download and [install latest version of Ruby](https://www.ruby-lang.org/en/documentation/installation/) 
+2. Install the platformos-check gem from the terminal:
+    ```
+    gem install platformos-check
+    ```
+
+You can verify the installation was successful by invoking `platformos-check --version`.
+
+More information about the language server: [platformOS Check][tc]
 
 -----
 
-⚠️ **Warning** Windows support is experimental. S
+⚠️ **Warning** Windows support is experimental.
 
 -----
 
