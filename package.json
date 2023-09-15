@@ -4,10 +4,10 @@
     "name": "charlespwd"
   },
   "version": "0.1.0",
-  "publisher": "PlatformOS",
+  "publisher": "platformOS",
   "license": "SEE LICENSE IN LICENSE.md",
-  "displayName": "PlatformOS Liquid",
-  "description": "A complete developer experience for PlatformOS apps",
+  "displayName": "platformOS Liquid",
+  "description": "A complete developer experience for platformOS apps",
   "categories": [
     "Programming Languages",
     "Linters",
@@ -98,7 +98,7 @@
       }
     ],
     "configuration": {
-      "title": "PlatformOS Liquid/GraphQL | Syntax Highlighting & Linter",
+      "title": "platformOS Liquid/GraphQL | Syntax Highlighting & Linter",
       "properties": {
         "platformosLiquid.languageServerPath": {
           "type": [
