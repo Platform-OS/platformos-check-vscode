@@ -13,7 +13,7 @@ CONTRIBUTING.md
 CODE_OF_CONDUCT.md
 RELEASING.md
 webpack.config.js
-theme-check-vscode*.vsix
+platformos-check-vscode*.vsix
 yarn.lock
 
 syntaxes/
