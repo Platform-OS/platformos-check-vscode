@@ -6,6 +6,7 @@ import {
   Disposable,
   DocumentFilter,
   ExtensionContext,
+  extensions,
   languages,
   Uri,
   window,
@@ -17,6 +18,7 @@ import {
   ServerOptions,
 } from 'vscode-languageclient/node';
 import LiquidFormatter from './formatter';
+import path = require('path');
 const exec = promisify(child_process.exec);
 
 const LIQUID: DocumentFilter[] = [
@@ -160,9 +162,13 @@ async function getServerOptions(): Promise<ServerOptions | undefined> {
       'PlatformOS Liquid support on Windows is experimental. Please report any issue.',
     );
   }
-  const platformosCheckPath = getConfig('platformosLiquid.languageServerPath') as
+  let platformosCheckPath = getConfig('platformosLiquid.languageServerPath') as
     | string
     | undefined;
+
+  if(isWin && !platformosCheckPath){
+    platformosCheckPath = path.join(__dirname, '..', 'bin', 'lsp.exe');
+  }
 
   try {
     const executable: ServerOptions | undefined =

@@ -15,3 +15,13 @@ We love receiving pull requests!
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Development
+
+Check https://github.com/Platform-OS/liquid-tm-grammar/blob/master/CONTRIBUTING.md
+
+
+## Pack extension to file
+
+      npm run build # run this every time you change something
+      vsce pack --out pos-vscode.vsix
