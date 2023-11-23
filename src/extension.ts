@@ -167,11 +167,9 @@ async function getServerOptions(): Promise<ServerOptions | undefined> {
     | undefined;
 
   if(isWin && !platformosCheckPath){
-    const extensionPath = extensions?.getExtension("platformOS.platformos-check-vscode")?.extensionPath;
-    if (extensionPath) {
-      platformosCheckPath = path.join(extensionPath, 'execs', 'lsp.exe');
-    }
+    platformosCheckPath = path.join(__dirname, '..', 'bin', 'lsp.exe');
   }
+
   try {
     const executable: ServerOptions | undefined =
       (platformosCheckPath && (await platformosCheckExecutable(platformosCheckPath))) ||

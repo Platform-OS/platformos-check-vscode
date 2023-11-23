@@ -23,4 +23,5 @@ Check https://github.com/Platform-OS/liquid-tm-grammar/blob/master/CONTRIBUTING.
 
 ## Pack extension to file
 
+      npm run build # run this every time you change something
       vsce pack --out pos-vscode.vsix
