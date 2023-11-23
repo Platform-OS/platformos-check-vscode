@@ -6,6 +6,7 @@ import {
   Disposable,
   DocumentFilter,
   ExtensionContext,
+  extensions,
   languages,
   Uri,
   window,
@@ -166,7 +167,10 @@ async function getServerOptions(): Promise<ServerOptions | undefined> {
     | undefined;
 
   if(isWin && !platformosCheckPath){
-    platformosCheckPath = path.join(__dirname, 'bin', 'lsp.exe');
+    const extensionPath = extensions?.getExtension("platformOS.platformos-check-vscode")?.extensionPath;
+    if (extensionPath) {
+      platformosCheckPath = path.join(extensionPath, 'execs', 'lsp.exe');
+    }
   }
   try {
     const executable: ServerOptions | undefined =
