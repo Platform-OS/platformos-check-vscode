@@ -19,3 +19,8 @@ We love receiving pull requests!
 ## Development
 
 Check https://github.com/Platform-OS/liquid-tm-grammar/blob/master/CONTRIBUTING.md
+
+
+## Pack extension to file
+
+      vsce pack --out pos-vscode.vsix
