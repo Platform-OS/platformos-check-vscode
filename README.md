@@ -8,9 +8,9 @@
 
 <h4 align="center">A complete developer experience for platformOS apps</h4>
 
-Official VS Code extension for [platformOS](https://documentation.platformos.com/) powered by [platformOS Check][tc] the Liquid/GraphQL linter and language server for platformOS apps.
+Official VS Code extension for [platformOS](https://documentation.platformos.com/), powered by [platformOS Check][tc], the Liquid/GraphQL linter and language server for platformOS apps.
 
-[Features](#features) |  [Installation](#installation) | [Configuration](#configuration) | [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=platformOS.platformos-check-vscode).
+[Features](#features) |  [Installation](#installation) | [Configuration](#configuration) | [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=platformOS.platformos-check-vscode)
 
 ## Features
 
@@ -25,28 +25,29 @@ Official VS Code extension for [platformOS](https://documentation.platformos.com
 
 ## Installation
 
-This VS Code extensions depends on the [platformOS Check][tc] language server.
+This VS Code extension depends on the [platformOS Check][tc] language server.
 
 -----
 
-⚠️ **Warning** Windows support is experimental. S
+⚠️ **Warning** Windows support is experimental.
 
 -----
 
 ## Configuration
 
-- `"platformosLiquid.languageServerPath": string`, (optional) a path to the `platformos-check-language-server` executable.
-- `"platformosLiquid.disableWindowsWarning": boolean`, (default: `false`) When true, platformOS check won't bug you with the Windows warning anymore.
-- `"platformosCheck.checkOnOpen": boolean`, (default: `true`) makes it so platformOS check runs on file open.
-- `"platformosCheck.checkOnChange": boolean`, (default: `true`) makes it so platformOS check runs on file change.
-- `"platformosCheck.checkOnSave": boolean`, (default: `true`) makes it so platformOS check runs on file save.
-- `"platformosCheck.onlySingleFileChecks": boolean`, (default: `true`) makes it so platformOS check only runs single file checks for the files that are open.
+Optimize your development workflow by configuring the extension settings as follows:
 
-  Great for performance if can ignore checks that span multiple files during development and otherwise run full platformOS checks on the CLI or in CI.
+- `"platformosLiquid.languageServerPath": string`, (optional): Specifies the path to the `platformos-check-language-server` executable.
+- `"platformosLiquid.disableWindowsWarning": boolean`, (default: `false`): Set to `true` to disable experimental support warnings for Windows.
+- `"platformosCheck.checkOnOpen": boolean`, (default: `true`): Automatically runs checks when a file is opened.
+- `"platformosCheck.checkOnChange": boolean`, (default: `true`): Automatically runs checks when a file is modified.
+- `"platformosCheck.checkOnSave": boolean`, (default: `true`): Automatically runs checks when a file is saved.
+- `"platformosCheck.onlySingleFileChecks": boolean`, (default: `true`): Limits checks to the files currently open.
 
+This configuration is great for enhancing performance during development by focusing on single-file checks. For comprehensive analysis, consider running full platformOS checks through the command line interface (CLI) or in your continuous integration (CI) environment.
 
 ## Credits
 
-Credits to Shopify team, as this extension is based on [theme-check-vscode](https://github.com/Shopify/theme-check-vscode)
+Special thanks to the Shopify team. This extension is based on [Shopify's theme-check-vscode](https://github.com/Shopify/theme-check-vscode).
 
 [tc]: https://github.com/Platform-OS/platformos-lsp
