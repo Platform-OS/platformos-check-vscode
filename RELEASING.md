@@ -38,12 +38,4 @@ scripts/check-yarn-links.sh && yarn && yarn build && yarn && yarn build && vsce 
 
 4. [Create a new release on GitHub](https://github.com/Platform-OS/platformos-lsp/releases/new), ideally including highlights from the CHANGELOG:
 
-```bash
-VERSION=v1.X.Y
-git fetch origin
-git fetch origin --tags
-git reset origin $VERSION
-gh release create -t $VERSION
-```
-
 Remember to paste relevant sections from the CHANGELOG into the release notes to inform users of the changes in this version.
