@@ -1,27 +1,32 @@
+# Troubleshooting
+
 ## I am not seeing completions or linting errors
 
-First we need to make sure that you have a running version of the language server.
+1. Ensure that you have detailed logging enabled for the language server. Add the following setting to your `settings.json` to view logs in the OUTPUT tab:
 
-1. In your `settings.json` add the following to enable language server logging in the OUTPUT tab:
+```json
+"platformosLiquid.trace.server": "verbose",
+```
 
-  ```
-  "platformosLiquid.trace.server": "verbose",
-  ```
+2. Restart the language server to apply any changes and start fresh logging:
 
-2. Restart the language server from the command palette (`cmd+p` > `platformOS Check: Restart Server`):
+- Open the command palette with `Cmd+P` (or `Ctrl+P` on Windows/Linux).
+- Type and select `platformOS Check: Restart Server`.
 
-3. From the OUTPUT tab, select `platformOS Check Language Server`:
+3. From the dropdown menu in the OUTPUT tab, select `platformOS Check Language Server`.
 
-4. You should see logs, search for `serverInfo` in the logs (`cmd+f` + `serverInfo`)
+4. Look through the logs for entries labeled `serverInfo`. You can quickly search using `Cmd+F` on macOS or `Ctrl+F` on Windows/Linux and typing `serverInfo`.
 
-5. We expect the path to `platformos-check-language-server` on your machine.
+5. The logs should display the path to the `platformos-check-language-server` executable. If this path is incorrect or missing, the server might not be installed correctly or not found due to a configuration issue (presumably because of a problem with you `$PATH` environment variable).
 
-   If you don't see that, either you did not install it or we can't find it (presumably because of a problem with you `$PATH` environment variable).
+Ensure that the path to `platformos-check-language-server` is correctly set. If the path is not detected automatically, you may need to hardcode it manually in  your `settings.json`:
 
-   When that happens, try hardcoding the following `settings.json` configuration:
+```json
+"platformosLiquid.languageServerPath": "<path-to-your-language-server-executable>"
+```
 
-    - `"platformosLiquid.languageServerPath"` the path to the `platformos-check-language-server` executable.
+Replace `"<path-to-your-language-server-executable>"` with the actual path where the executable is located on your system.
 
-  **Note:** If you are on Windows, you'd find the path with the `where` command, also note that JSON requires escaping backslashes in paths.
+- **Windows**: Use the `where` command in the Command Prompt to find the executable path. Remember to escape backslashes in your JSON file (`C:\\path\\to\\server`).
 
-  **Note:** If you are on Linux/macOS, you should be able to find it with the `which` command
+- **Linux/macOS**: Use the `which` command in the terminal to locate the executable. Provide the full path in your settings.
